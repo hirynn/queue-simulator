@@ -7,19 +7,24 @@ using namespace std;
 class Server
 {
 private:
-	string currentJobID;
+	Service currentJob;
 	double time;
+	double idleTime;
 
 public:
-	string getCurrentJobID();
-	void setCurrentJobID(string);
-	void setEmpty();
+	bool isBusy;
 
-	bool isEmpty();
+	double getTime();
+	Service getCurrentJob();
+	double getIdleTime();
+	void setCurrentJob(Service);
+	void setBusy();
+	void setFree();
 	
-	void adjustTime(Service, Queue);
+	void incrementIdleTime(double);
+	void adjustTime(double);
 
 	Server(); //using default constructor here
-	~Server();
+	~Server(); //TODO: double check implementation
 };
 

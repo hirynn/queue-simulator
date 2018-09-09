@@ -7,50 +7,59 @@ using namespace std;
 
 Server::Server()
 {
-	currentJobID = "";
 	time = 0;
+	idleTime = 0;
+	isBusy = false;
 }
 
 Server::~Server()
 {
-	delete this;
+
 }
 
-string Server::getCurrentJobID()
+double Server::getTime()
 {
-	return currentJobID;
+	return time;
 }
 
-void Server::setCurrentJobID(string currentJobID)
+double Server::getIdleTime()
 {
-	this->currentJobID = currentJobID;
+	return idleTime;
 }
 
-void Server::adjustTime(Service job, Queue queue)
+Service Server::getCurrentJob()
 {
-	//TODO: add conditions for time, set job to "" if there is a window in arrival time and service time  
-	if (isEmpty()) //if there is no job now 
-	{
-		//we wait until the job arrives
-		time += job.getArrivalTime();
-	}
-	else if (!isEmpty())//if there is a job now 
-	{
-		//we add the time needed to service them 
-		time += job.getServiceTime();
-	}
+	return currentJob;
 }
 
-bool Server::isEmpty()
+void Server::setCurrentJob(Service service)
 {
-	if (currentJobID == "")
-		return true;
-	else
-		return false;
+	this->currentJob = service;
 }
 
-//set when there is no job 
-void Server::setEmpty()
+void Server::adjustTime(double extraTime)
 {
-	currentJobID = "";
+	//if there is job wait time
+	if (extraTime < 0)
+		extraTime = 0;
+
+	//this->time = (currentJob.getArrivalTime() + currentJob.getServiceTime() + extraTime);
+	this->time = extraTime;
+}
+
+void Server::incrementIdleTime(double idleTime)
+{
+	this->idleTime += idleTime;
+}
+
+//set when there is no job
+void Server::setFree()
+{
+	this->isBusy = false;
+}
+
+//set when there is a job 
+void Server::setBusy()
+{
+	this->isBusy = true;
 }

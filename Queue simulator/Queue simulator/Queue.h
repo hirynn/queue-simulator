@@ -9,7 +9,7 @@ private:
 	int endOfQueue;
 	int startOfQueue;
 	int size;
-	string currentService;
+	Service currentService;
 	Service *queueList; 
 public:
 	Queue(int);
@@ -18,13 +18,14 @@ public:
 	~Queue();
 
 	//getters and setters
-	string getCurrentService();
-	void setCurrentService(string);
+	Service getCurrentService();
+	void setCurrentService(Service);
 
 	bool isEmpty();
 	bool isFull();
 
 	bool enqueue(Service); //returns true if the operation succeeded
 	Service dequeue(); //returns the service and decrements the queue position
+	Service peek(); //peeks at the next service without dequeueing 
 };
 

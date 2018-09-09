@@ -4,7 +4,7 @@
 
 Queue::Queue()
 {
-	
+	//not used
 }
 
 Queue::Queue(int size)
@@ -17,10 +17,10 @@ Queue::Queue(int size)
 
 Queue::~Queue()
 {
-	delete queueList;
-	delete this;
+	delete[] queueList;
 }
 
+//adds the job into the queue if the queue is not full
 bool Queue::enqueue(Service service) 
 {
 	if (!isFull())
@@ -33,24 +33,32 @@ bool Queue::enqueue(Service service)
 		return false;
 }
 
+//returns the service and decrements the queue position
 Service Queue::dequeue()
 {
 	if (!isEmpty())
 	{
-		startOfQueue++;
-		return queueList[startOfQueue - 1];
+		startOfQueue++; //oldest item in queue is now [current item] + 1
+		return queueList[startOfQueue - 1]; //return the [current item]
 	}
 }
 
-string Queue::getCurrentService()
+//peeks at the next service without dequeueing
+Service Queue::peek()
+{
+	if (!isEmpty())
+		return queueList[startOfQueue]; //return [next item] or [current item] + 1
+}
+
+Service Queue::getCurrentService()
 {
 	return currentService;
 }
 
 //maybe I'll need it idk
-void Queue::setCurrentService(string currentService) 
+void Queue::setCurrentService(Service service) 
 {
-	this->currentService = currentService;
+	this->currentService = service;
 }
 
 bool Queue::isEmpty()

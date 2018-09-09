@@ -19,7 +19,7 @@ Service::Service(string jobID, double arrivalTime, double serviceTime)
 
 Service::~Service()
 {
-	delete this;
+
 }
 
 string Service::getJobID()
