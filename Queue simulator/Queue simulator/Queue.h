@@ -20,6 +20,8 @@ public:
 	//getters and setters
 	Service getCurrentService();
 	void setCurrentService(Service);
+	int getNumberOfItems();
+	double getTotalServiceTime();
 
 	bool isEmpty();
 	bool isFull();
