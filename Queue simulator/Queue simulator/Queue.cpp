@@ -7,7 +7,7 @@ Queue::Queue()
 	//not used
 }
 
-Queue::Queue(int size)
+void Queue::initialization(int size)
 {
 	queueList = new Service[size];
 	this->size = size;
@@ -25,10 +25,7 @@ bool Queue::enqueue(Service service)
 {
 	if (!isFull())
 	{
-		this->queueList[endOfQueue].setArrivalTime(service.getArrivalTime());
-		this->queueList[endOfQueue].setServiceTime(service.getServiceTime());
-
-		//this->queueList[endOfQueue] = service;
+		queueList[endOfQueue] = service;
 		endOfQueue++;
 		return true;
 	}
@@ -37,7 +34,7 @@ bool Queue::enqueue(Service service)
 }
 
 //returns the service and decrements the queue position
-Service Queue::dequeue() //TODO: fix bad alloc error
+Service Queue::dequeue()
 {
 	if (!isEmpty())
 	{

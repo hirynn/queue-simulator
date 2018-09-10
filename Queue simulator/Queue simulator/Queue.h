@@ -12,7 +12,7 @@ private:
 	Service currentService;
 	Service *queueList; 
 public:
-	Queue(int);
+	void initialization(int);
 
 	Queue();
 	~Queue();
