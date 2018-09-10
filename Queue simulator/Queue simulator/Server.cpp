@@ -39,7 +39,7 @@ void Server::setCurrentJob(Service service)
 
 void Server::adjustTime(double extraTime)
 {
-	//if there is job wait time
+	//if there is job wait time (just in case -- should never go into this block)
 	if (extraTime < 0)
 		extraTime = 0;
 

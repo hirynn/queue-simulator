@@ -5,26 +5,23 @@ using namespace std;
 class Service
 {
 private:
-	string jobID;
 	double arrivalTime;
 	double serviceTime;
 
 public:
 	//non-default constructor
-	Service(string, double, double);
+	Service(double, double); //not used
 
 	//getters
-	string getJobID();
 	double getArrivalTime();
 	double getServiceTime();
 
 	//setters
-	void setJobID(string);
 	void setArrivalTime(double);
 	void setServiceTime(double);
 
 	//constructor 
-	Service();
+	Service(); //using default constructor here
 
 	//destructor
 	~Service();

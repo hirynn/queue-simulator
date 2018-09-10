@@ -9,23 +9,23 @@ private:
 	int endOfQueue;
 	int startOfQueue;
 	int size;
-	Service currentService;
 	Service *queueList; 
 public:
-	void initialization(int);
+	//initializes data
+	void initialization(int); //note: used after default constructor to initialize data
 
 	Queue();
 	~Queue();
 
-	//getters and setters
-	Service getCurrentService();
-	void setCurrentService(Service);
+	//getters
 	int getNumberOfItems();
 	double getTotalServiceTime();
 
+	//validators
 	bool isEmpty();
 	bool isFull();
 
+	//queue functions
 	bool enqueue(Service); //returns true if the operation succeeded
 	Service dequeue(); //returns the service and decrements the queue position
 	Service peek(); //peeks at the next service without dequeueing 

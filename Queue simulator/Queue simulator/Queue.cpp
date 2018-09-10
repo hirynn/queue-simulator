@@ -50,17 +50,6 @@ Service Queue::peek()
 		return queueList[startOfQueue]; //return [next item] or [current item] + 1
 }
 
-Service Queue::getCurrentService()
-{
-	return currentService;
-}
-
-//maybe I'll need it idk
-void Queue::setCurrentService(Service service) 
-{
-	this->currentService = service;
-}
-
 int Queue::getNumberOfItems()
 {
 	return (endOfQueue - startOfQueue);

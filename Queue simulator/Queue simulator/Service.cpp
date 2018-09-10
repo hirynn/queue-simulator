@@ -5,14 +5,12 @@ using namespace std;
 
 Service::Service()
 {
-	jobID = "";
 	arrivalTime = 0;
 	serviceTime = 0;
 }
 
-Service::Service(string jobID, double arrivalTime, double serviceTime)
+Service::Service(double arrivalTime, double serviceTime)
 {
-	this->jobID = jobID;
 	this->arrivalTime = arrivalTime;
 	this->serviceTime = serviceTime;
 }
@@ -20,11 +18,6 @@ Service::Service(string jobID, double arrivalTime, double serviceTime)
 Service::~Service()
 {
 
-}
-
-string Service::getJobID()
-{
-	return jobID;
 }
 
 double Service::getArrivalTime()
@@ -35,11 +28,6 @@ double Service::getArrivalTime()
 double Service::getServiceTime()
 {
 	return serviceTime;
-}
-
-void Service::setJobID(string jobID)
-{
-	this->jobID = jobID;
 }
 
 void Service::setArrivalTime(double arrivalTime)
