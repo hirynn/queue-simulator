@@ -5,6 +5,7 @@ using namespace std;
 
 Service::Service()
 {
+	JobID = 0;
 	arrivalTime = 0;
 	serviceTime = 0;
 }
@@ -20,6 +21,11 @@ Service::~Service()
 
 }
 
+int Service::getJobID()
+{
+	return JobID;
+}
+
 double Service::getArrivalTime()
 {
 	return arrivalTime;
@@ -28,6 +34,11 @@ double Service::getArrivalTime()
 double Service::getServiceTime()
 {
 	return serviceTime;
+}
+
+void Service::setJobID(int JobID)
+{
+	this->JobID = JobID;
 }
 
 void Service::setArrivalTime(double arrivalTime)

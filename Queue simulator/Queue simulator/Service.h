@@ -5,6 +5,7 @@ using namespace std;
 class Service
 {
 private:
+	int JobID;
 	double arrivalTime;
 	double serviceTime;
 
@@ -13,10 +14,12 @@ public:
 	Service(double, double); //not used
 
 	//getters
+	int getJobID();
 	double getArrivalTime();
 	double getServiceTime();
 
 	//setters
+	void setJobID(int);
 	void setArrivalTime(double);
 	void setServiceTime(double);
 
