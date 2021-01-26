@@ -12,10 +12,10 @@ servers. (Note: the arrival times are sorted in ascending order).
 
 Your program should read the name of the data file from standard input and then read the data in the
 named file into the simulation. Run the simulation for a 20 service requests.
-
 The standard output for both the queuing process will consist of the following data:
-• Average waiting time of a service request
+
+- Average waiting time of a service request
 Average waiting time = (Total time a service request waits in queue) / (Total number of service
 requests)
-• Total idle time for each server.
-• A short write out to show comparison between both strategies.
+- Total idle time for each server.
+- A short write out to show comparison between both strategies.
